@@ -10,12 +10,17 @@ import (
 func Run() error {
 	fmt.Println("Rocker Service Starting...")
 
-	database, err := db.New()
+	rocketStore, err := db.New()
 	if err != nil {
 		return err
 	}
 
-	_ = rocket.New(database)
+	err = rocketStore.Migrate()
+	if err != nil {
+		log.Println("Failed to run migrations")
+		return err
+	}
+	_ = rocket.New(rocketStore)
 	return nil
 }
 
