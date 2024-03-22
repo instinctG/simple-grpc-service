@@ -17,7 +17,7 @@ type Rocket struct {
 type Store interface {
 	GetRocketByID(ctx context.Context, ID string) (Rocket, error)
 	InsertRocket(ctx context.Context, rocket Rocket) (Rocket, error)
-	DeleteRocket(ID string) error
+	DeleteRocket(ctx context.Context, ID string) error
 }
 
 // Service - our rocket service, used for updating our
@@ -51,8 +51,8 @@ func (s Service) InsertRocket(ctx context.Context, rocket Rocket) (Rocket, error
 
 // DeleteRocket - deletes a rocket - most likely rapid
 // unscheduled disassembly
-func (s Service) DeleteRocket(id string) error {
-	err := s.Store.DeleteRocket(id)
+func (s Service) DeleteRocket(ctx context.Context, id string) error {
+	err := s.Store.DeleteRocket(ctx, id)
 	if err != nil {
 		return err
 	}
