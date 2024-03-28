@@ -2,7 +2,9 @@
 
 package rocket
 
-import "context"
+import (
+	"context"
+)
 
 // Rocket - should contain things like the ID for the rocket,
 // the name for the rocket and the type of rocket.

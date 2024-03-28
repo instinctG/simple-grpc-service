@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Rest-API-v2/.idea/Rest-API-v2.iml" filepath="$PROJECT_DIR$/../Rest-API-v2/.idea/Rest-API-v2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../protos/.idea/protos.iml" filepath="$PROJECT_DIR$/../protos/.idea/protos.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/simple-grpc-service.iml" filepath="$PROJECT_DIR$/.idea/simple-grpc-service.iml" />
     </modules>
   </component>

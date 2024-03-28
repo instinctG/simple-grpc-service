@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/instinctG/simple-grpc-service/internal/db"
 	"github.com/instinctG/simple-grpc-service/internal/rocket"
+	"github.com/instinctG/simple-grpc-service/internal/transport/grpc"
 	"log"
 )
 
@@ -20,7 +21,13 @@ func Run() error {
 		log.Println("Failed to run migrations")
 		return err
 	}
-	_ = rocket.New(rocketStore)
+
+	rktService := rocket.New(rocketStore)
+	rktHandler := grpc.New(rktService)
+
+	if err := rktHandler.Serve(); err != nil {
+		return err
+	}
 	return nil
 }
 
